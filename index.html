@@ -58,30 +58,37 @@
           <table class="table table-custom">   
             <thead>   
               <tr> 
-                <th>Date</th>
+                <th>Age</th>
                 <th>BMI</th>
-                <th>Body Fat %</th>
+                <th>Height</th>
                 <th>Weight</th>
+                <th>Date</th>
                 <th></th>    
               </tr>
             </thead>
             <tbody id="project-display-bmi">
               <tr>
-                <td>Project tracker</td>  
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-late">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-today">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
             </tbody>
@@ -127,10 +134,10 @@
                   >Gender</label>
                 <select id="gender-input-bmi" class="form-select">
                   <option value="">Choose One</option>  
-                  <option value="Web Application (Front End)">
+                  <option value="Male">
                     Male
                   </option>
-                  <option value="Web Application (Back End)">
+                  <option value="Female">
                     Female
                   </option>
                 </select>
@@ -204,7 +211,7 @@
               <button
                 class="btn btn-block btn-custom w-100"
                 data-bs-toggle="modal"
-                data-bs-target="#new-project-modal"
+                data-bs-target="#new-project-modal-2"
               >
                 Click It!
               </button>
@@ -218,28 +225,28 @@
             <thead>   
               <tr> 
                 <th>Date</th>
-                <th>Calories</th>
                 <th>Foods</th>
+                <th>Calories</th>
                 <th></th>    
               </tr>
             </thead>
-            <tbody id="project-display-food">
+            <tbody id="display-food">
               <tr>
-                <td>Project tracker</td>  
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-late">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-today">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
             </tbody>
@@ -249,16 +256,16 @@
 
       <!--Food Input (second row): Modal - "Click It" > Form -->
       <div class="modal fade"
-      id="new-project-modal"
+      id="new-project-modal-2"
       tabindex="-1"
       aria-labelledby="new-project-modal-label"
       aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form id="project-form-food"> 
+          <form id="form-food"> 
             <div class="modal-header custom-modal-header">
               <h5 class="modal-title" id="new-project-modal-label">
-                Add a new project
+                Food/Ingredients Search
               </h5>
               <button
                 type="button"
@@ -278,10 +285,10 @@
                   required
                 />
               <div class="mb-3">
-                <label for="project-date-input-food">Date</label>
+                <label for="date-input-food">Date</label>
                 <input
                   type="date"
-                  id="project-date-input-food"
+                  id="date-input-food"
                   class="form-control"
                   required
                 />
