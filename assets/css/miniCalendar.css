@@ -1,0 +1,39 @@
+#mini-calendar-section {
+    width: 400px;
+    height: 250px;
+}
+
+#month-name {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+#mini-calendar-container {
+    border-left: 1px solid black;
+}
+
+#mini-calendar {
+    display: flex;
+    border-top: 1px solid black;
+}
+
+#mini-calendar .col {
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+/* turns off auto bootstrap styling that messes with calendar layout */
+#mini-calendar .row {
+    --bs-gutter-x: 0;
+}
+
+/* changes background-color of today's date */
+.todays-date { 
+    background-color: red;
+}
+
+/* changes font-color of days that aren't in the current month */
+.not-current-month {
+    color: rgba(128, 128, 128, 0.6);
+}
