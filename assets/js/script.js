@@ -11,7 +11,7 @@ var trackerBmiDateInputEl = $('#date-input-bmi');
 
 // DISPLAYS TIME
 function displayTime() {
-  var currentTime = dayjs().format('MMM DD, YYYY [at] hh:mm:ss a');
+  var currentTime = dayjs().format('MMM DD, YYYY');
   timeDisplayEl.text(currentTime);
 }
 
@@ -58,9 +58,9 @@ function printBmiData() {
 
     // COLOR CODE FOR CURRENT DATE VS PAST DATE
     if (bmiDate.isBefore(today)) {
-      rowEl.addClass('project-late');
+      rowEl.addClass('past-date');
     } else if (bmiDate.isSame(today)) {
-      rowEl.addClass('project-today');
+      rowEl.addClass('present-date');
     }
   
     rowEl.append(ageEL, genderEl, heightEl, weightEl, dateEl, deleteEl);

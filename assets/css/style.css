@@ -38,12 +38,46 @@ h6 {
   color: var(--light);
 }
 
-.project-late {
+.past-date {
   background-color: var(--lightred);
 }
 
-.project-today {
+.present-date {
   background-color: var(--lightyellow);
 }
+
+#goatCarrot {
+  position: absolute;
+  width: 375px;
+  height: 250px;
+  top: 9px;
+  left: 250px;  
+}
+
+#BradyGoat {
+  position: absolute;
+  width: 185px;
+  height: 250px;
+  top: 9px;
+  right: 440px;  
+}
+
+#MessiGoat {
+  position: absolute;
+  width: 185px;
+  height: 250px;
+  top: 9px;
+  right: 240px;  
+}
+
+#JordanGoat {
+  position: absolute;
+  width: 175px;
+  height: 250px;
+  top: 9px;
+  right: 50px;  
+}
+
+
 
 
