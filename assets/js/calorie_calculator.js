@@ -1,14 +1,17 @@
-var userFormEl = document.querySelector('#user-form');
+var userFormEl = document.querySelector('#project-form-bmi');
 
- //Declare Variables 
-var firstnameEl = document.querySelector('#firstname');
-var lastnameEl = document.querySelector('#lastname');
-var neckEl = document.querySelector('#neck');
-var hipEl = document.querySelector('#hip');
-var genderEl =  document.querySelector('#gender');
-var ageEl = document.querySelector('#age');
-var heightEl = document.querySelector('#height');
-var weightEl = document.querySelector('#weight');
+ //Declare Variables changed based on index.html id
+var firstnameEl = document.querySelector('#firstName-input-bmi');
+var lastnameEl = document.querySelector('#lastName-input-bmi');
+var neckEl = document.querySelector('#neck-input-bmi');
+var hipEl = document.querySelector('#hip-input-bmi');
+var genderEl =  document.querySelector('#gender-input-bmi');
+var ageEl = document.querySelector('#age-input-bmi');
+var heightEl = document.querySelector('#height-input-bmi');
+var weightEl = document.querySelector('#weight-input-bmi');
+var firstDisplay = document.querySelector ('#fName')
+
+//to do 
 var DisplayContainerEl = document.querySelector('#Display-container');
 
 genderEl.addEventListener('change', function() {
@@ -22,41 +25,55 @@ renderLastuserInfo();
 
 function renderLastuserInfo() {
 
-   firstnameEl.value = localStorage.getItem ("firstname");
-   lastnameEl.value  = localStorage.getItem("lastname");
-   neckEl.value = window.localStorage.getItem ("neck");
-   ageEl.value = window.localStorage.getItem("age");
-   hipEl.value =  window.localStorage.getItem ("hip");
-   genderEl.value = window.localStorage.getItem("gender");
-   heightEl.value = window.localStorage.getItem ("height");
-   weightEl.value = window.localStorage.getItem("weight");
+ console.log(localStorage.getItem ("firstname"));
+
+  // firstnameEl.value = localStorage.getItem ("firstname");
+  // lastnameEl.value  = localStorage.getItem("lastname");
+ //  neckEl.value = window.localStorage.getItem ("neck");
+//   ageEl.value = window.localStorage.getItem("age");
+ //  hipEl.value =  window.localStorage.getItem ("hip");
+  // genderEl.value = window.localStorage.getItem("gender");
+ // // heightEl.value = window.localStorage.getItem ("height");
+ //  weightEl.value = window.localStorage.getItem("weight");
+
+
+ firstDisplay.value = localStorage.getItem ("firstname");
+ //lastnameEl.value  = localStorage.getItem("lastname");
+
+
 
 }
 
 
 var formSubmitHandler = function (event) {
-event.preventDefault();
+  event.preventDefault();
   var firstname = firstnameEl.value.trim() 
   var lastname = lastnameEl.value.trim() 
   var neck = neckEl.value.trim() 
   var hip = hipEl.value.trim()
-  var gender = genderEl.value.trim();
   var age = ageEl.value.trim();
   var height = heightEl.value.trim();
   var weight = weightEl.value.trim();
+  var gender = genderEl.value.trim();
+ 
+
+
+  console.log (firstname)
+  console.log (lastname) 
+  console.log (neck)
+  console.log (hip)
+  console.log (age)
+  console.log (height)
+  console.log (weight)
+  console.log (gender)
+ 
+
 
 
   if (firstname && lastname && gender && age && neck && hip && height && weight) {
    
    UsersInfo(firstname,lastname,neck,hip,gender,age,height,weight);
 
-    //repoContainerEl.textContent = '';
-    //genderEl.value = '';
-    //ageEl.value = '';
-   // heightEl.value= '';
-   // weightEl.value= '';
-   // activityEl.value= '';
- 
 
   } else {
     alert('Please enter all the inforamtion');
@@ -92,6 +109,11 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
  
  // API Urls
    const Caloriesurl = 'https://hipermega-fitness-calculator.p.rapidapi.com/caloriesneeds?gender=' + gender + '&age='+ age +'&height='+ height + '&weight='+ weight +'&activity=active';
+   
+   
+   
+   
+   
    const BMIurl = 'https://hipermega-fitness-calculator.p.rapidapi.com/bmi?height='+ height +'&weight=' + weight + "'";
    
   //Attention Please !!!!!! BFP Calculation generate error if gender value = Female, so I have to force value to be "male" not to generate error. API Error and I repored to api vendor
@@ -170,50 +192,50 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
       alert('Unable to connect to HiperMega Fitness Calculator ');
    });
 
-   renderLastuserInfo();
+   //renderLastuserInfo();
 
   
 
-   DisplayUserInfo(localStorage.getItem("firstname"),lastname,localStorage.getItem("balance"),localStorage.getItem("heavyWeightGain"),localStorage.getItem("heavyWeightLoss"),
-   localStorage.getItem("mildWeightGain"),localStorage.getItem("mildWeightLoss"),localStorage.getItem("BMI_Result"),localStorage.getItem("BodyFat%"));
+  // DisplayUserInfo(localStorage.getItem("firstname"),lastname,localStorage.getItem("balance"),localStorage.getItem("heavyWeightGain"),localStorage.getItem("heavyWeightLoss"),
+  // localStorage.getItem("mildWeightGain"),localStorage.getItem("mildWeightLoss"),localStorage.getItem("BMI_Result"),localStorage.getItem("BodyFat%"));
 
  };
 
 
- var DisplayUserInfo = function (firstname,lastname,balance,heavyWeightGain,heavyWeightLoss,mildWeightGain,mildWeightLoss,bmiResult,bodyfat) {
+// var DisplayUserInfo = function (firstname,lastname,balance,heavyWeightGain,heavyWeightLoss,mildWeightGain,mildWeightLoss,bmiResult,bodyfat) {
   
-     var passingArray = [
-   { name: "firstname:", value: firstname, words: "" },
-    { name: "lastname:", value: lastname, words: ""  },
-   { name: "To be balanced:", value: balance, words: "Calories"  },
-   { name: "heavyWeightGain:", value: heavyWeightGain, words: "Calories"  },
-   { name: "heavyWeightLoss:", value: heavyWeightLoss, words: "Calories"  },
-   { name: "mildWeightGain:", value: mildWeightGain, words: "Calories"  },
-   { name: "mildWeightLoss:", value: mildWeightLoss, words: "Calories" },
-    { name: "bmiResult:", value: bmiResult, words: " BMI"},
-    { name: "bodyfat %:", value: bodyfat, words: " %"}
-];
+   //  var passingArray = [
+  // { name: "firstname:", value: firstname, words: "" },
+  //  { name: "lastname:", value: lastname, words: ""  },
+  // { name: "To be balanced:", value: balance, words: "Calories"  },
+  // { name: "heavyWeightGain:", value: heavyWeightGain, words: "Calories"  },
+  // { name: "heavyWeightLoss:", value: heavyWeightLoss, words: "Calories"  },
+  // { name: "mildWeightGain:", value: mildWeightGain, words: "Calories"  },
+  // { name: "mildWeightLoss:", value: mildWeightLoss, words: "Calories" },
+  //  { name: "bmiResult:", value: bmiResult, words: " BMI"},
+   // { name: "bodyfat %:", value: bodyfat, words: " %"}
+//];
 
 
 
 
 
 
-  var innerHtmlContents = ""; 
+  //var innerHtmlContents = ""; 
 
 
  
-  for (var i = 0; i <passingArray.length; i++ ) {
+  //for (var i = 0; i <passingArray.length; i++ ) {
 
-    innerHtmlContents +=  "<p>" + passingArray[i].name + " " + passingArray[i].value  + " " + passingArray[i].words + "</P>"
+   // innerHtmlContents +=  "<p>" + passingArray[i].name + " " + passingArray[i].value  + " " + passingArray[i].words + "</P>"
 
-  }
+ // }
 
- console.log (innerHtmlContents)
-  DisplayContainerEl.innerHTML = innerHtmlContents
+ //console.log (innerHtmlContents)
+  //DisplayContainerEl.innerHTML = innerHtmlContents
   
   
- }
+// }
 
    
  
