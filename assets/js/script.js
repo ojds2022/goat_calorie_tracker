@@ -120,4 +120,4 @@ var projectFormFoodEl = $('#project-form-food');
 var projectInputFoodEl = $('#input-food');
 var projectDateInputFoodEl = $('#project-date-input-food');
 
-*/
+*/    var foodCalorieEl = $('<td>').text(foods.foodCalorie);
