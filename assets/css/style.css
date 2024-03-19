@@ -1,10 +1,10 @@
 :root {
-  --yellowtext: #FEFE33;
-  --maincolor: #8601AF;
+  --yellowtext: #FDB927;
+  --maincolor: #552583;
   --hovercolor: #F7F7D4;
-  --secondarybar: #2A0934;
-  --pastdate: #9214B8;
-  --presentdate: #fff5d1;
+  --secondarybar: #552583;
+  --pastdate: #FF5D1;
+  --presentdate: #FEFE33;
 }
 
 body {
