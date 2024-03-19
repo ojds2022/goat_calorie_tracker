@@ -1,6 +1,5 @@
 
 var timeDisplayEl = $('#time-display');
-
 var trackerDisplayBmiEl = $('#project-display-bmi');
 var trackerFormBmiEl = $('#project-form-bmi');
 var trackerBmiAgeEl = $('#age-input-bmi');
@@ -150,7 +149,7 @@ function printFoodData() {
 
     var secondRowEl = $('<tr>');  
     var foodSelectionEl = $('<td>').text(foods.foodSelection);
-    // var foodCalorieEl = $('<td>').text(foods.foodCalorie);
+    var foodCalorieEl = $('<td>').text(foods.foodCalorie);
     var foodDateEl = $('<td>').text(foodsDate.format('MM/DD/YYYY'));
 
     var secondDeleteEl = $(
@@ -166,8 +165,8 @@ function printFoodData() {
       secondRowEl.addClass('project-today');
     }
   
-    // Commented out calorie table unit information for API calorie
-    secondRowEl.append(foodSelectionEl, /*foodCalorieEl,*/ foodDateEl, secondDeleteEl);
+    
+    secondRowEl.append(foodSelectionEl, foodCalorieEl, foodDateEl, secondDeleteEl);
     displayFoodEl.append(secondRowEl);
   }
 }
@@ -185,24 +184,28 @@ function handleDeleteFood() {
 // FOOD MODAL SUBMISSION
 function handleFoodFormSubmit(event) {
   event.preventDefault();  
-
   var ingredient = inputFoodEl.val().trim();
   var foodsDate = dateInputFoodEl.val(); 
 
-var foodData = {     
-    foodSelection: ingredient,
-    date: foodsDate,
-  };
-
-  var foodDataList = foodLocalStorage();
-
-  foodDataList.push(foodData);
-  saveAllFoodDataToStorage(foodDataList);
-
-  printFoodData();
-
-  inputFoodEl.val('');
-  dateInputFoodEl.val('');
+  getCaloriesFromAPI(ingredient);
+  var caloriesPromise = getCaloriesFromAPI(ingredient);
+  caloriesPromise.then(function(calories){
+    var foodData = {     
+      foodSelection: ingredient,
+      date: foodsDate,
+      foodCalorie: calories,
+    };
+  
+    var foodDataList = foodLocalStorage();
+  
+    foodDataList.push(foodData);
+    saveAllFoodDataToStorage(foodDataList);
+  
+    printFoodData();
+  
+    inputFoodEl.val('');
+    dateInputFoodEl.val('');
+  })
 }
 
 formFoodEl.on('submit', handleFoodFormSubmit);
@@ -211,3 +214,31 @@ printFoodData();
 
 displayTime();
 setInterval(displayTime, 1000);  
+
+
+//API Calories
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '9dbcd8e5dfmsha70214446503936p14ec91jsn5d557cae99ce',
+		'X-RapidAPI-Host': 'nutrition-by-api-ninjas.p.rapidapi.com'
+	}
+};
+
+
+var getCaloriesFromAPI = function (ingredient) {
+  var apiUrl = 'https://nutrition-by-api-ninjas.p.rapidapi.com/v1/nutrition?query=' + ingredient;
+  //gets data from our API and also gives them the passkey
+  return fetch(apiUrl, options)
+    .then(function (response) {
+      if (response.ok) {
+        return response.json().then(function (data) {
+          //this returns an integer
+          return data[0].calories;
+        });
+      } else {
+        alert('Error: ' + response.statusText);
+      }
+    })
+
+};
