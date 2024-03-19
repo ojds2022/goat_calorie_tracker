@@ -184,7 +184,6 @@ function handleDeleteFood() {
 // FOOD MODAL SUBMISSION
 function handleFoodFormSubmit(event) {
   event.preventDefault();  
-
   var ingredient = inputFoodEl.val().trim();
   var foodsDate = dateInputFoodEl.val(); 
 
