@@ -14,9 +14,14 @@
       rel="stylesheet"/>
 
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/miniCalendar.css" />
   </head>
   <body>
     <header class="p-5 mb-4 text-center header">
+        <!--Adding the link to the calendar page need to be edited to look good-->
+        <nav class="text-left nav ">
+            <a href="./calendar.html" target="_blank" >Calendar</a>
+        </nav>
       <h1>GOAT Project Tracker</h1>
       <h2>
         Current Time &amp; Date: <br />
@@ -58,30 +63,37 @@
           <table class="table table-custom">   
             <thead>   
               <tr> 
-                <th>Date</th>
+                <th>Age</th>
                 <th>BMI</th>
-                <th>Body Fat %</th>
+                <th>Height</th>
                 <th>Weight</th>
+                <th>Date</th>
                 <th></th>    
               </tr>
             </thead>
             <tbody id="project-display-bmi">
               <tr>
-                <td>Project tracker</td>  
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-late">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-today">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Age: Input</td>  
+                <td>BMI: Input</td>
+                <td>Height: Input</td>
+                <td>Weight: Input</td>
+                <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
             </tbody>
@@ -127,10 +139,10 @@
                   >Gender</label>
                 <select id="gender-input-bmi" class="form-select">
                   <option value="">Choose One</option>  
-                  <option value="Web Application (Front End)">
+                  <option value="Male">
                     Male
                   </option>
-                  <option value="Web Application (Back End)">
+                  <option value="Female">
                     Female
                   </option>
                 </select>
@@ -204,7 +216,7 @@
               <button
                 class="btn btn-block btn-custom w-100"
                 data-bs-toggle="modal"
-                data-bs-target="#new-project-modal"
+                data-bs-target="#new-project-modal-2"
               >
                 Click It!
               </button>
@@ -218,28 +230,28 @@
             <thead>   
               <tr> 
                 <th>Date</th>
-                <th>Calories</th>
                 <th>Foods</th>
+                <th>Calories</th>
                 <th></th>    
               </tr>
             </thead>
-            <tbody id="project-display-food">
+            <tbody id="display-food">
               <tr>
-                <td>Project tracker</td>  
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-late">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
               <tr class="project-today">
-                <td>Project tracker</td>
-                <td>Web Application (Front End)</td>
-                <td>06/30/2022</td>
+                <td>Date: Input</td>  
+                <td>Food: Input</td>
+                <td>Calories: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
             </tbody>
@@ -249,16 +261,16 @@
 
       <!--Food Input (second row): Modal - "Click It" > Form -->
       <div class="modal fade"
-      id="new-project-modal"
+      id="new-project-modal-2"
       tabindex="-1"
       aria-labelledby="new-project-modal-label"
       aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <form id="project-form-food"> 
+          <form id="form-food"> 
             <div class="modal-header custom-modal-header">
               <h5 class="modal-title" id="new-project-modal-label">
-                Add a new project
+                Food/Ingredients Search
               </h5>
               <button
                 type="button"
@@ -278,10 +290,10 @@
                   required
                 />
               <div class="mb-3">
-                <label for="project-date-input-food">Date</label>
+                <label for="date-input-food">Date</label>
                 <input
                   type="date"
-                  id="project-date-input-food"
+                  id="date-input-food"
                   class="form-control"
                   required
                 />
@@ -309,6 +321,14 @@
     </section>
   </div>
 
+    <!-- mini calendar -->
+    <section id="mini-calendar-section" class="ms-5">
+      <h2 id="month-name" class="text-center py-3 mb-0"></h2>
+      <div id="mini-calendar-container" class="container">
+        <div id="mini-calendar" class="row"></div>
+      </div>
+    </section>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -321,5 +341,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/miniCalendar.js"></script>
   </body>
 </html>

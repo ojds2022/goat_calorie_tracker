@@ -1,0 +1,40 @@
+
+.calandar
+{
+    background-color: aqua;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);/* How many coloms 7*/
+    grid-template-rows: repeat(5, 1fr);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    
+    
+
+/* Make the colome responce */
+
+}
+
+
+/* Each day is a div and its css properties*/
+#day
+{
+    border: solid;
+    border-radius: 0%;
+    background-color: red;
+    width: 150px;
+    height: 200px;
+    pad: 100px;
+
+    
+}
+
+/*The bullet points*/
+.dayUl
+{
+    padding-left: 20px;
+    padding-top: 40px;
+}
+
