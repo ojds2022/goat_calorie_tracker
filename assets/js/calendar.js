@@ -2,7 +2,7 @@ var calandarEl = document.querySelector(".calandar");
 var monthDisplayEl = $('#month');
 
 var text = "Example ";
-var currenyday = "2";
+var currenyday = dayjs().format('D');
 
 
 
@@ -43,16 +43,41 @@ for(let i =1; i <= 31; i++)
 // day1.appendChild(li);
 // }
 
-var cal = "#Calories" + currenyday ;
-var calorieEl = $(cal);
-calorieEl.text("Calories: " + text)
+//this gets the data from local storage and parses it. 
+var allFoodData = localStorage.getItem('allFoodData');
+allFoodData = JSON.parse(allFoodData);
 
+//this accounts for multiple foods being submitted and updates new calories just for that day
+var caloriesFinalList = {};
 
-function data()
-{
-       
+loopsForFoodDay();
 
+function loopsForFoodDay(){
+       for (var i = 0; i < allFoodData.length; i++) {
 
+              foodDateIfSame= dayjs(allFoodData[i].date).format('D');
+              if (!caloriesFinalList[foodDateIfSame]){
+                     caloriesFinalList[foodDateIfSame]= 0;
+              }
+                            
+              caloriesFinalList[foodDateIfSame] += (allFoodData[i].foodCalorie);   
+       }    
 }
+
+
+
+//this allows for all the items in the data set to be put into the calendar
+
+for (var i = 0; i < allFoodData.length; i ++) {
+       //this variable selects just the day of the month so that we can have it select the day on the calendar as well
+       var dateFromStorage = dayjs(allFoodData[i].date).format('D');
+       var text = caloriesFinalList[dateFromStorage].toFixed(3);              
+       var cal = "#Calories" + dateFromStorage ;
+       var calorieEl = $(cal);
+       calorieEl.text("Calories: " + text);
+       
+}
+
+// data retrieved from index.html and printed onto this page
 
 displayTime();
