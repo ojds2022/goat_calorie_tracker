@@ -24,6 +24,12 @@ nav {
   font-family: 'Marko One', sans-serif;
 }
 
+a {
+  color: var(--yellowtext);
+  font-size: 30px;
+  text-decoration: none;
+}
+
 body {
   font-family: 'Petrona', sans-serif;
   font-weight: 400;
