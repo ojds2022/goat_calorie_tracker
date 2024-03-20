@@ -1,29 +1,18 @@
-
-
 .header
 {
     text-align: center;
     font-size: 30px;
 }
 
-
-
-.calandar
-{
+.calendar
+{    
+    display: flex;
+    flex-wrap: wrap;
+    position: static;
+    max-width: 134rem;
+    margin: 0 7%;
     
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);/* How many coloms 7*/
-    grid-template-rows: repeat(5, 1fr);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
-    margin-top: 30px;
-    
-
 /* Make the colome responce */
-
 }
 
 
@@ -34,15 +23,9 @@
     border-radius: 0%;
     background-color: rgb(249, 214, 214);
     width: 190px;
-    height: 200px;
-    pad: 100px;
-    margin-left: 3px;
-    margin-bottom: 3px;
-    padding-left: 10px;
-    padding-top: 5px;
-    font-size: 30px;
-
-    
+    height: 190px;
+    padding: 2px;
+    font-size: 30px;    
 }
 
 
@@ -50,12 +33,47 @@
 #day ul li
 {
     font-size: 20px;
-    
+    list-style: none;   
 }
 
 /*The bullet points*/
 .dayUl
 {
-    padding-left: 20px;
+    padding-left: 10px;
 }
 
+
+
+/* smartphones, iPhone, portrait 480x320 phones  */
+@media screen and (min-width:320px)  {
+    #day{
+        height: 100%;
+        width: 100%;
+    } 
+}
+
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media screen and (min-width:641px)  {
+    #day{
+        height: 10%;
+        width: 31%;
+        padding-left: 7px;
+    } 
+}
+
+/* tablet, landscape iPad, lo-res laptops ands desktops */
+@media screen and (min-width:961px)  {
+    #day{
+        height: 10%;
+        width: 23%;
+        padding-left: 9px;
+    } 
+}
+
+/* big landscape tablets, laptops, and desktops */
+@media screen and (min-width:1025px) {
+    #day{
+        height: 12%;
+        width: 13%;
+    } 
+}

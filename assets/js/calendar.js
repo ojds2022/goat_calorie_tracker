@@ -1,24 +1,17 @@
-var calandarEl = document.querySelector(".calandar");
+var calendarEl = document.querySelector(".calendar");
 var monthDisplayEl = $('#month');
 
-var text = "Example ";
-var currenyday = "2";
+var text = "";
+var currenyday = "";
 
-
-
-
-function displayTime()
-{
-var currentTime = dayjs().format('MMMM');
+function displayTime() {
+var currentTime = dayjs().format('MMMM YYYY');
 monthDisplayEl.text(currentTime);
-
 }
 
-
 // This loop adds the dates and the data for each date on the calandar
-for(let i =1; i <= 31; i++) 
-{
-       calandarEl.insertAdjacentHTML("beforeend", `
+for(let i =1; i <= 31; i++) {
+       calendarEl.insertAdjacentHTML("beforeend", `
        <div id=day> ${i}
         <ul id="day${i}" class="dayUl">
 
@@ -48,11 +41,11 @@ var calorieEl = $(cal);
 calorieEl.text("Calories: " + text)
 
 
-function data()
-{
+// function data()
+// {
        
 
 
-}
+// }
 
 displayTime();
