@@ -48,56 +48,34 @@ var allFoodData = localStorage.getItem('allFoodData');
 allFoodData = JSON.parse(allFoodData);
 
 //this accounts for multiple foods being submitted and updates new calories just for that day
-var wholeDayCalories = 0;
-/*var foodDateIfSame = 24; 
-var caloriesFinalList = [];
+var caloriesFinalList = {};
 
-var caloriesFinalEach = {     
-       date:foodDateIfSame,
-       calories:wholeDayCalories,
-};
-
-caloriesFinalList.push(caloriesFinalEach)*/
 loopsForFoodDay();
+
 function loopsForFoodDay(){
        for (var i = 0; i < allFoodData.length; i++) {
-              for (var w = allFoodData.length-1; w > 0; w-- ){
-                     if(allFoodData[i].date === allFoodData[w].date){
-                            /*foodDateIfSame= dayjs(allFoodData[i].date).format('D');
-                            loopToAddCalories();*/
-                            wholeDayCalories = wholeDayCalories + allFoodData[i].foodCalorie;
+
+              foodDateIfSame= dayjs(allFoodData[i].date).format('D');
+              if (!caloriesFinalList[foodDateIfSame]){
+                     caloriesFinalList[foodDateIfSame]= 0;
+              }
                             
-                     }
-              }
-       }
-       
-       //final result needed
-       console.log((wholeDayCalories/(allFoodData.length-1)).toFixed(3))
-       //wholeDayCalories = 0;
+              caloriesFinalList[foodDateIfSame] += (allFoodData[i].foodCalorie);   
+       }    
 }
 
-/*
-console.log(caloriesFinalList);
 
-function loopToAddCalories(){
-       for (var i = 0; i < caloriesFinalList.length;i++){
-              if (foodDateIfSame === caloriesFinalList[i].date){
-                     return;
-              }
-              else caloriesFinalList.push(caloriesFinalEach);
-       }
-}
-*/
+
 //this allows for all the items in the data set to be put into the calendar
 
 for (var i = 0; i < allFoodData.length; i ++) {
-       //
-       var text = (wholeDayCalories/(allFoodData.length-1)).toFixed(3);
        //this variable selects just the day of the month so that we can have it select the day on the calendar as well
-       var dateFromStorage = dayjs(allFoodData[i].date).format('D');                 
+       var dateFromStorage = dayjs(allFoodData[i].date).format('D');
+       var text = caloriesFinalList[dateFromStorage].toFixed(3);              
        var cal = "#Calories" + dateFromStorage ;
        var calorieEl = $(cal);
        calorieEl.text("Calories: " + text);
+       
 }
 
 // data retrieved from index.html and printed onto this page
