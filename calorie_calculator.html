@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/calorie_style.css" />
+  <title>Project1</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title">
+      <i class="fab fa-github"></i> Project1
+    </h1>
+    <p>Calories API
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Input User information</h3>
+        <form id="user-form" class="card-body">
+         
+        
+          
+          <label class="form-label" for="firstname">FirstName</label>
+          <input name="firstname" id="firstname" type="text"  class="form-input" />
+
+          <label class="form-label" for="lastname">LastName</label>
+          <input name="lastname" id="lastname" type="text"  class="form-input" />
+
+   
+        
+
+
+          <label class="form-label" for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          
+
+                             
+          <label class="form-label" for="age">Age</label>
+          <input name="age" id="age" type="text"  class="form-input" />
+
+          <label class="form-label" for="neck">Neck</label>
+          <input name="neck" id="neck" type="text" class="form-input" />
+
+          <label class="form-label" for="hip">Hip</label>
+          <input name="hip" id="hip" type="text"  class="form-input" />
+          
+       
+          <label class="form-label" for="height">height</label>
+          <input name="height" id="height" type="text"  class="form-input" />
+
+          <label class="form-label" for="weight">weight</label>
+          <input name="weight" id="weight" type="text"  class="form-input" />
+
+          
+          <br>
+          <button type="submit" class="btn">Get calories Information </button>
+        </form>
+      </div>
+
+   
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Showing Results:
+        
+        
+        
+      
+      <div id="Display-container" class="list-group">
+
+
+        
+
+        
+      </div>
+    </div>
+  </main>
+
+  <script src="./assets/js/calorie_calculator.js"></script>
+</body>
+
+</html>
