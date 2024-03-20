@@ -41,12 +41,25 @@
               </p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Age</li>
-              <li class="list-group-item">Gender</li>
-              <li class="list-group-item">Height</li>
-              <li class="list-group-item">Weight</li>
+              <!--adding id to li to add the value-->
+              <li class="list-group-item" id="displayFirstName">First Name</li>
+              <li class="list-group-item" id ="displayLastName">Last Name</li>
+              <li class="list-group-item" id="displayAge">Age</li>
+              <li class="list-group-item" id="displayGender">Gender</li>
+              <li class="list-group-item" id="displayHeight">Height</li>
+              <li class="list-group-item" id="displayWeight">Weight</li>
+              <li class="list-group-item" id="displayNeck">Neck</li>
+              <li class="list-group-item" id="displayHip">Hip</li>
+              <li class="list-group-item" id="displayBMI">BMI</li>
+              <li class="list-group-item" id="displayBFP">BFP %</li>
+              <li class="list-group-item" id="displayBalanced">Recommended Calories</li>
+              <li class="list-group-item" id="displayHeavyGain">Heavy weight Gain</li>
+              <li class="list-group-item" id="displayHeavyLoss">Heavy Weight Loss</li>
+              <li class="list-group-item" id="displayMildGain">Mild Weight Gain</li>
+              <li class="list-group-item" id="displayMildLoss">Mild Weight Loss</li>
+
             </ul>
-            <div class="card-footer">
+            <div class="card-footer main-page-containers">
               <button
                 class="btn btn-block btn-custom w-100"
                 data-bs-toggle="modal"
@@ -60,38 +73,37 @@
 
         <!--BMI and Calorie Standard (first row): table (Name, Type, Due)-->
         <div class="col-md col-xl-8"> 
-          <table class="table table-custom">   
-            <thead>   
-              <tr> 
-                <th>Age</th>
+          <table class="table table-custom" >   
+            <thead ></thead>
+                <th>BFP %</th>
                 <th>BMI</th>
-                <th>Height</th>
+                <th>Balanced Calories </th>
                 <th>Weight</th>
                 <th>Date</th>
                 <th></th>    
               </tr>
             </thead>
             <tbody id="project-display-bmi">
-              <tr>
-                <td>Age: Input</td>  
+              <tr class="project-BFP">
+                <td>BFP: Input</td>  
                 <td>BMI: Input</td>
-                <td>Height: Input</td>
+                <td>Balanced: Input</td>
                 <td>Weight: Input</td>
                 <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
-              <tr class="project-late">
-                <td>Age: Input</td>  
+              <tr class="project-BFP">
+                <td>BFP: Input</td>  
                 <td>BMI: Input</td>
-                <td>Height: Input</td>
+                <td>Balanced: Input</td>
                 <td>Weight: Input</td>
                 <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
               </tr>
-              <tr class="project-today">
-                <td>Age: Input</td>  
+              <tr class="project-BFP">
+                <td>BFP: Input</td>  
                 <td>BMI: Input</td>
-                <td>Height: Input</td>
+                <td>Balanced: Input</td>
                 <td>Weight: Input</td>
                 <td>Date: Input</td>
                 <td><button class="btn btn-sm">X</button></td>
@@ -122,8 +134,32 @@
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-            </div>
-            <div class="modal-body">
+            </div> 
+
+            <div class="modal-body"> 
+               <!--additional field added firstname and last name -->
+                <div class="mb-3">
+                 <label for="firstName-input-bmi">First Name</label>
+                 <input
+                  type="text"       
+                  id="firstName-input-bmi"
+                  class="form-control"
+                  placeholder="First Name"
+                  required
+                    />
+                </div>
+
+                <div class="mb-3">
+                  <label for="lastName-input-bmi">Last Name</label>
+                  <input
+                    type="text"       
+                   id="lastName-input-bmi"
+                   class="form-control"
+                  placeholder="Last Name"
+                   required
+                  />
+                 </div>
+              <!--ending additional field added firstname and last name --> 
               <div class="mb-3">
                 <label for="age-input-bmi">Age</label>
                 <input
@@ -138,7 +174,7 @@
                 <label for="gender-input-bmi" class="form-label"
                   >Gender</label>
                 <select id="gender-input-bmi" class="form-select">
-                  <option value="">Choose One</option>  
+                <!--<option value="">Choose One</option>  -->  
                   <option value="Male">
                     Male
                   </option>
@@ -166,7 +202,30 @@
                   placeholder="Enter your weight (lbs)"
                   required
                 />
+              </div> 
+              <!--additional field added--> 
+              <div class="mb-3">
+                <label for="neck-input-bmi">Neck (inches)</label>
+                <input
+                  type="text"       
+                  id="neck-input-bmi"
+                  class="form-control"
+                  placeholder="Enter Neck (inches)"
+                  required
+                />
               </div>
+
+              <div class="mb-3">
+                <label for="hip-input-bmi">hip (inches)</label>
+                <input
+                  type="text"       
+                  id="hip-input-bmi"
+                  class="form-control"
+                  placeholder="Enter Hip (inches)"
+                  required
+                />
+              </div>
+             <!--ending additional field added-->  
               <div class="mb-3">
                 <label for="date-input-bmi">Date</label>
                 <input
@@ -209,10 +268,10 @@
                 Tag all foods consumed for the day to generate total calorie intake:
               </p>
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush main-page-containers">
               <li class="list-group-item">Foods</li>
             </ul>
-            <div class="card-footer">
+            <div class="card-footer main-page-containers">
               <button
                 class="btn btn-block btn-custom w-100"
                 data-bs-toggle="modal"
