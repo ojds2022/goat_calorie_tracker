@@ -1,14 +1,33 @@
 var calandarEl = document.querySelector(".calandar");
+var monthDisplayEl = $('#month');
+
+var text = "Example ";
+var currenyday = "2";
 
 
+
+
+function displayTime()
+{
+var currentTime = dayjs().format('MMMM');
+monthDisplayEl.text(currentTime);
+
+}
+
+
+// This loop adds the dates and the data for each date on the calandar
 for(let i =1; i <= 31; i++) 
 {
-       calandarEl.insertAdjacentHTML("beforeend", `<div id=day> ${i}
+       calandarEl.insertAdjacentHTML("beforeend", `
+       <div id=day> ${i}
         <ul id="day${i}" class="dayUl">
-        <li>Calories: </li>
-        <li>Weight: </li>
-        <li>BMI: </li>
-       </ul> </div>`);
+
+        <li id="Calories${i}">Calories: </li>
+        <li id="Weight${i}">Weight: </li>
+        <li id="BMI${i}">BMI: </li>
+
+       </ul> 
+       </div>`);
 }
 
 // //This is not going to be loop,
@@ -24,16 +43,16 @@ for(let i =1; i <= 31; i++)
 // day1.appendChild(li);
 // }
 
+var cal = "#Calories" + currenyday ;
+var calorieEl = $(cal);
+calorieEl.text("Calories: " + text)
+
 
 function data()
 {
        
-       var currenydayEl = document.getElementById("day1")
-       var li = document.createElement("li");
-       var text = "Example ";
-       var textNode = document.createTextNode(text)
-       li.appendChild(textNode);
 
-       day1.appendChild(li);
 
 }
+
+displayTime();

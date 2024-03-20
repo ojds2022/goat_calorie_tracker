@@ -1,7 +1,16 @@
 
+
+.header
+{
+    text-align: center;
+    font-size: 30px;
+}
+
+
+
 .calandar
 {
-    background-color: aqua;
+    
     display: grid;
     grid-template-columns: repeat(7, 1fr);/* How many coloms 7*/
     grid-template-rows: repeat(5, 1fr);
@@ -10,7 +19,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
-    
+    margin-top: 30px;
     
 
 /* Make the colome responce */
@@ -18,16 +27,29 @@
 }
 
 
-/* Each day is a div and its css properties*/
+/* Each day is a div and its css properties to set the color, font size*/
 #day
 {
     border: solid;
     border-radius: 0%;
-    background-color: red;
-    width: 150px;
+    background-color: rgb(249, 214, 214);
+    width: 190px;
     height: 200px;
     pad: 100px;
+    margin-left: 3px;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    padding-top: 5px;
+    font-size: 30px;
 
+    
+}
+
+
+/*This is changing hte size of the data in the day*/
+#day ul li
+{
+    font-size: 20px;
     
 }
 
@@ -35,6 +57,5 @@
 .dayUl
 {
     padding-left: 20px;
-    padding-top: 40px;
 }
 
