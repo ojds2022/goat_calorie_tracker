@@ -166,7 +166,7 @@ function printFoodData() {
     }
   
     
-    secondRowEl.append(foodSelectionEl, foodCalorieEl, foodDateEl, secondDeleteEl);
+    secondRowEl.append( foodDateEl, foodSelectionEl, foodCalorieEl, secondDeleteEl);
     displayFoodEl.append(secondRowEl);
   }
 }
@@ -190,14 +190,15 @@ function handleFoodFormSubmit(event) {
   getCaloriesFromAPI(ingredient);
   var caloriesPromise = getCaloriesFromAPI(ingredient);
   caloriesPromise.then(function(calories){
+    
     var foodData = {     
       foodSelection: ingredient,
       date: foodsDate,
       foodCalorie: calories,
     };
-  
+    
     var foodDataList = foodLocalStorage();
-  
+    
     foodDataList.push(foodData);
     saveAllFoodDataToStorage(foodDataList);
   
