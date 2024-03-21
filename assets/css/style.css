@@ -58,12 +58,16 @@ h6 {
 }
 
 .btn-custom:hover {
+<<<<<<< HEAD
   background-color: var(--hovercolor);
   color: #552583;
 }
 
 .btn-sm:hover {
   color: var(--closebutton);
+=======
+  color: var(--hovercolor);
+>>>>>>> 6168a2a12efa7a63ac1fc68a5fe271f24284a971
 }
 
 .table-custom th {
@@ -71,11 +75,19 @@ h6 {
   color: var(--yellowtext);
 }
 
+<<<<<<< HEAD
 .project-late {
   background-color: var(--pastdate);
 }
 
 .project-today {
+=======
+.past-date {
+  background-color: var(--pastdate);
+}
+
+.present-date {
+>>>>>>> 6168a2a12efa7a63ac1fc68a5fe271f24284a971
   background-color: var(--presentdate);
 }
 

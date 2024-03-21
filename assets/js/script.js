@@ -402,9 +402,9 @@ function printFoodData() {
 
     // COLOR CODE FOR CURRENT DATE VS PAST DATE
     if (foodsDate.isBefore(today)) {
-      secondRowEl.addClass('project-late');
+      secondRowEl.addClass('past-date');
     } else if (foodsDate.isSame(today)) {
-      secondRowEl.addClass('project-today');
+      secondRowEl.addClass('present-date');
     }
   
     
