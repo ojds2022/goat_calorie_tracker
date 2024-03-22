@@ -90,8 +90,8 @@ function renderLastuserInfo() {
    lastNameElement.textContent = lastNameElement.textContent + ": " + last;
    ageElement.textContent = ageElement.textContent + ": " + age;
    genderElement.textContent =  genderElement.textContent + " : " + gender;
-   heightElement.textContent = heightElement.textContent + ": " + height;
-   weightElement.textContent = weightElement.textContent + ": " + weight;
+   heightElement.textContent = heightElement.textContent + ": " + height + " CM";
+   weightElement.textContent = weightElement.textContent + ": " + weight + " LB";
    neckElement.textContent =  neckElement.textContent + " : " + neck;
    hipElement.textContent =  hipElement.textContent + " : " + hip;
    BMIElement.textContent = BMIElement.textContent + ": " + BMIResults;
@@ -187,7 +187,10 @@ function handleBmiFormSubmit(event) {
 
   var bmiAge = trackerBmiAgeEl.val().trim();     
   var bmiGender = trackerBmiGenderEl.val();
-  var bmiHeight = trackerBmiHeightEl.val(); 
+  var bmiHeight = inchesToCm(trackerBmiHeightEl.val());
+   function inchesToCm(inches) {
+     return inches * 2.54;
+  } 
   var bmiWeight = trackerBmiWeightEl.val(); 
   var bmiDate = trackerBmiDateInputEl.val(); 
   //adding additional fields

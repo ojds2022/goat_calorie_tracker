@@ -17,13 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
             const newBmiArray = [];
 
             // iterates over the bmi data to find 'Balanced' or reccommended calorie intake
-            for (let i = 0; i <dataArray.length; i++) {
-                const calRec = dataArray[i].Balanced;
-                const dateOfRec = dataArray[i].date; // finds the date that the recommendation was given
-                const newObj = {};
-                newObj[dateOfRec] = calRec;
-                newBmiArray.push(newObj);
-            }
+            if (dataArray.length === 0) {
+                newBmiArray.push('');
+            } else {
+                for (let i = 0; i <dataArray.length; i++) {
+                    const calRec = dataArray[i].Balanced;
+                    const dateOfRec = dataArray[i].date; // finds the date that the recommendation was given
+                    const newObj = {};
+                    newObj[dateOfRec] = calRec;
+                    newBmiArray.push(newObj);
+                }
+            } 
+        
             return newBmiArray;
         } else {
             console.log('Array not found in local storage');
@@ -74,12 +79,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
         const todaysDate = currentDate.getDate();
-
+        
         const topBmiEntry = parseInt(Object.values(findBmi(allBmiData)[0])[0]);
          // the calories based on the date of a bmi entry
         const bmiDateCalConsumption = addUpCalories(caloriesArray(allFoodData), findBmi(allBmiData));
-
-        console.log(topBmiEntry);
 
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
@@ -103,7 +106,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             
             // Check if today's date matches the current date
-            if (i === todaysDate && bmiDateCalConsumption < topBmiEntry) {
+            if (i === todaysDate && !topBmiEntry) {
+                html += `<div class="col text-center todays-date">${i}</div>`; //adds the class .todays-date
+            } else if (i === todaysDate && bmiDateCalConsumption < topBmiEntry) {
                 html += `<div class="col text-center todays-date">${i}</div>`; //adds the class .todays-date
             } else if (i === todaysDate && bmiDateCalConsumption === topBmiEntry) {
                 html += `<div class="col text-center target-met">${i}</div>`; //adds the class .target-met
@@ -125,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
         calendarHeader.innerHTML = monthNames[currentMonth];
         calendar.innerHTML = html;
     }
+    
 
     renderCalendar();
 });
