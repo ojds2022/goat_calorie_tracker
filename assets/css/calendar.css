@@ -32,7 +32,7 @@
 /*This is changing hte size of the data in the day*/
 #day ul li
 {
-    font-size: 20px;
+    font-size: 19px;
     list-style: none;   
 }
 
@@ -47,7 +47,6 @@
 /* smartphones, iPhone, portrait 480x320 phones  */
 @media screen and (min-width:320px)  {
     #day{
-        height: 100%;
         width: 100%;
     } 
 }
@@ -55,7 +54,6 @@
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 @media screen and (min-width:641px)  {
     #day{
-        height: 10%;
         width: 31%;
         padding-left: 7px;
     } 
@@ -64,7 +62,6 @@
 /* tablet, landscape iPad, lo-res laptops ands desktops */
 @media screen and (min-width:961px)  {
     #day{
-        height: 10%;
         width: 23%;
         padding-left: 9px;
     } 
@@ -73,7 +70,6 @@
 /* big landscape tablets, laptops, and desktops */
 @media screen and (min-width:1025px) {
     #day{
-        height: 12%;
         width: 13%;
     } 
 }
