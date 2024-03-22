@@ -181,6 +181,20 @@ function handleDeleteBmi() {
   printBmiData();
 }
 
+// converts inches to cm
+function inchesToCm(inches) {
+  const centimeters = inches * 2.54;
+  console.log(centimeters);
+  return centimeters;
+} 
+
+// converts pounds to kg
+function poundsToKg(pounds) {
+  const kilograms = pounds * 0.453592;
+  console.log(kilograms);
+  return kilograms;
+}
+
 // BMI MODAL SUBMISSION
 function handleBmiFormSubmit(event) {
   event.preventDefault();  
@@ -188,10 +202,7 @@ function handleBmiFormSubmit(event) {
   var bmiAge = trackerBmiAgeEl.val().trim();     
   var bmiGender = trackerBmiGenderEl.val();
   var bmiHeight = inchesToCm(trackerBmiHeightEl.val());
-   function inchesToCm(inches) {
-     return inches * 2.54;
-  } 
-  var bmiWeight = trackerBmiWeightEl.val(); 
+  var bmiWeight = poundsToKg(trackerBmiWeightEl.val()); 
   var bmiDate = trackerBmiDateInputEl.val(); 
   //adding additional fields
 
