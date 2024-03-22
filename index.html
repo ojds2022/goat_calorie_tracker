@@ -38,12 +38,12 @@
         <div class="col-md col-xl-4">
           <div class="card mb-3">  
             <h2 class="h4 card-header custom-card-header text-center">Enter Your Numbers!</h2>
-            <div class="card-body">
+            <div class="card-body user-input-container">
               <p class="card-text">
                 These numbers will help generate your BMI and calorie standards:
               </p>
             </div>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush user-input-container">
               <!--adding id to li to add the value-->
               <li class="list-group-item" id="displayFirstName">First Name</li>
               <li class="list-group-item" id ="displayLastName">Last Name</li>
@@ -271,10 +271,10 @@
                 Tag all foods consumed for the day to generate total calorie intake:
               </p>
             </div>
-            <ul class="list-group list-group-flush main-page-containers">
+            <ul class="list-group list-group-flush user-input-container">
               <li class="list-group-item">Foods</li>
             </ul>
-            <div class="card-footer main-page-containers">
+            <div class="card-footer user-input-container">
               <button
                 class="btn btn-block btn-custom w-100"
                 data-bs-toggle="modal"
@@ -384,12 +384,16 @@
   </div>
 
     <!-- mini calendar -->
-    <section id="mini-calendar-section" class="ms-5">
-      <h2 id="month-name" class="text-center py-3 mb-0"></h2>
-      <div id="mini-calendar-container" class="container">
-        <div id="mini-calendar" class="row"></div>
-      </div>
-    </section>
+    <div class="ms-3">
+      <a id="mini-calendar-anchortag" href="./calendar.html" target="_blank">
+        <section id="mini-calendar-section" class="">
+          <h2 id="month-name" class="text-center py-3 mb-0"></h2>
+          <div id="mini-calendar-container" class="container">
+            <div id="mini-calendar" class="row"></div>
+          </div>
+        </section>
+      </a>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"

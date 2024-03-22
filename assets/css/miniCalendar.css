@@ -3,15 +3,22 @@
     height: 250px;
 }
 
+#mini-calendar-anchortag {
+    text-decoration: none;
+}
+
 #month-name {
-    border-top: 1px solid #552583;
-    border-left: 1px solid #552583;
-    border-right: 1px solid #552583;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     background-color: #552583;
     color: #fdb927;
+    font-size: 1.3em;
 }
 
 #mini-calendar-container {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.8em;
     border-left: 1px solid black;
 }
 
@@ -30,12 +37,30 @@
     --bs-gutter-x: 0;
 }
 
-/* changes background-color of today's date */
+/* today's date */
 .todays-date { 
     background-color: #fefe33;
+    color: black;
 }
 
-/* changes font-color of days that aren't in the current month */
+.target-met {
+    background-color: rgb(68, 233, 68);
+    color: black;
+}
+
+.target-passed {
+    background-color: red;
+    color: black;
+}
+
+/* other days in current month */
+.other-days {
+    background-color: white;
+    color: black;
+}
+
+/* days that aren't in the current month */
 .not-current-month {
     color: rgba(128, 128, 128, 0.6);
+    background-color: white;
 }

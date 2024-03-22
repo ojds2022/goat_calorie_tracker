@@ -36,8 +36,8 @@ body {
   background-color: var(--backgroundcolor);
 }
 
-.card-body, .main-page-containers, .main-page-containers li {
-  background-color: var(--backgroundcolor);
+.card-body, .user-input-container, .user-input-container li {
+  background-color: white;
 }
 
 h1,
