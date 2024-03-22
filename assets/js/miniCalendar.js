@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentYear = currentDate.getFullYear();
         const todaysDate = currentDate.getDate();
 
-        const topBmiEntry = Object.values(findBmi(allBmiData)[0])[0];
+        const topBmiEntry = parseInt(Object.values(findBmi(allBmiData)[0])[0]);
          // the calories based on the date of a bmi entry
         const bmiDateCalConsumption = addUpCalories(caloriesArray(allFoodData), findBmi(allBmiData));
 
@@ -103,11 +103,11 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             
             // Check if today's date matches the current date
-            if (i === todaysDate && bmiDateCalConsumption < parseInt(topBmiEntry)) {
+            if (i === todaysDate && bmiDateCalConsumption < topBmiEntry) {
                 html += `<div class="col text-center todays-date">${i}</div>`; //adds the class .todays-date
-            } else if (i === todaysDate && bmiDateCalConsumption === parseInt(topBmiEntry)) {
+            } else if (i === todaysDate && bmiDateCalConsumption === topBmiEntry) {
                 html += `<div class="col text-center target-met">${i}</div>`; //adds the class .target-met
-            } else if (i === todaysDate && bmiDateCalConsumption > parseInt(topBmiEntry)) {
+            } else if (i === todaysDate && bmiDateCalConsumption > topBmiEntry) {
                 html += `<div class="col text-center target-passed">${i}</div>`; //adds the class .target-passed
             } else {
                     html += `<div class="col text-center other-days">${i}</div>`;
