@@ -72,13 +72,13 @@ function renderLastuserInfo() {
    var last = bmi.lastname;
    var age = bmi.age;
    var gender = bmi.gender;
-   var height = bmi.height;
+   var height = Math.round(bmi.height * 0.393701);
    var BFPResults = bmi.BFPResults;
    var BMIResults = bmi.BMIResults;
    var Balanced = bmi.Balanced;
    var hip = bmi.hip;
    var neck = bmi.neck;
-   var weight = bmi.weight;
+   var weight = Math.round(bmi.weight * 2.20462);
    var heavyGain = bmi.HeavyWeightGain
    var heavyLoss = bmi.HeavyWeightLoss
    var mildGain = bmi.MildWeightGain
@@ -90,10 +90,10 @@ function renderLastuserInfo() {
    lastNameElement.textContent = lastNameElement.textContent + ": " + last;
    ageElement.textContent = ageElement.textContent + ": " + age;
    genderElement.textContent =  genderElement.textContent + " : " + gender;
-   heightElement.textContent = heightElement.textContent + ": " + height + " CM";
-   weightElement.textContent = weightElement.textContent + ": " + weight + " LB";
-   neckElement.textContent =  neckElement.textContent + " : " + neck;
-   hipElement.textContent =  hipElement.textContent + " : " + hip;
+   heightElement.textContent = heightElement.textContent + ": " + height + " in";
+   weightElement.textContent = weightElement.textContent + ": " + weight + " lb";
+   neckElement.textContent =  neckElement.textContent + " : " + neck + " in";
+   hipElement.textContent =  hipElement.textContent + " : " + hip + " in";
    BMIElement.textContent = BMIElement.textContent + ": " + BMIResults;
    BFPElement.textContent = BFPElement.textContent + ": " + BFPResults;
    BlancedElement.textContent = "Recommended Calories Per Day: " + Balanced;
@@ -149,8 +149,8 @@ function printBmiData() {
     var rowEl = $('<tr>');  
     var ageEL = $('<td>').text(bmi.BFPResults + " %" );
     var genderEl = $('<td>').text(bmi.BMIResults);
-    var heightEl = $("<td>").text(bmi.Balanced);
-    var weightEl = $('<td>').text(bmi.weight);
+    var heightEl = $("<td>").text(Math.round(bmi.Balanced));
+    var weightEl = $('<td>').text(Math.round(bmi.weight * 2.20462) + " lb");
     var dateEl = $('<td>').text(bmiDate.format('MM/DD/YYYY'));
 
     var deleteEl = $(
