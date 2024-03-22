@@ -50,6 +50,8 @@ function getCal(){
 
 var allData = {};
 
+
+// this function gets the data from the local storage and saves it in var as an objects
 function getData()
 {
        for (var i = 0; i < bmiData.length; i++)
@@ -82,10 +84,10 @@ function getData()
 }
 
 getData();
-console.log(bmiData);
-console.log(allData);
-console.log(allData[20].weight);
-console.log(allData[2].bmi);
+// console.log(bmiData);
+// console.log(allData);
+// console.log(allData[20].weight);
+// console.log(allData[2].bmi);
 
 
 //this allows for all the items in the data set to be put into the calendar
