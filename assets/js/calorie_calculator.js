@@ -47,10 +47,10 @@ function renderLastuserInfo() {
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
-  var firstname = firstnameEl.value.trim() 
-  var lastname = lastnameEl.value.trim() 
-  var neck = neckEl.value.trim() 
-  var hip = hipEl.value.trim()
+  var firstname = firstnameEl.value.trim(); 
+  var lastname = lastnameEl.value.trim(); 
+  var neck = neckEl.value.trim(); 
+  var hip = hipEl.value.trim();
   var age = ageEl.value.trim();
   var height = heightEl.value.trim();
   var weight = weightEl.value.trim();
@@ -58,14 +58,14 @@ var formSubmitHandler = function (event) {
  
 
 
-  console.log (firstname)
-  console.log (lastname) 
-  console.log (neck)
-  console.log (hip)
-  console.log (age)
-  console.log (height)
-  console.log (weight)
-  console.log (gender)
+  console.log (firstname);
+  console.log (lastname); 
+  console.log (neck);
+  console.log (hip);
+  console.log (age);
+  console.log (height);
+  console.log (weight);
+  console.log (gender);
  
 
 
@@ -129,15 +129,15 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
    .then(function (response) {
       if (response.ok) {
         response.json().then(function (Calories_data) {
-       console.log (Calories_data)
+       console.log (Calories_data);
 
      
       //adding values  to local storage as string 
-       window.localStorage.setItem ("balance", JSON.stringify(Calories_data.balance) )
-       window.localStorage.setItem ("mildWeightLoss", JSON.stringify(Calories_data.mildWeightLoss) )
-       window.localStorage.setItem ("mildWeightGain", JSON.stringify(Calories_data.mildWeightGain) )
-       window.localStorage.setItem ("heavyWeightLoss", JSON.stringify(Calories_data.heavyWeightLoss) )
-       window.localStorage.setItem ("heavyWeightGain", JSON.stringify(Calories_data.heavyWeightGain) )
+       window.localStorage.setItem ("balance", JSON.stringify(Calories_data.balance) );
+       window.localStorage.setItem ("mildWeightLoss", JSON.stringify(Calories_data.mildWeightLoss) );
+       window.localStorage.setItem ("mildWeightGain", JSON.stringify(Calories_data.mildWeightGain) );
+       window.localStorage.setItem ("heavyWeightLoss", JSON.stringify(Calories_data.heavyWeightLoss) );
+       window.localStorage.setItem ("heavyWeightGain", JSON.stringify(Calories_data.heavyWeightGain) );
 
 
         });
@@ -151,16 +151,16 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
 
 
 
-// BMI fatch
+// BMI fetch
   
 
    fetch(BMIurl, Credential)
    .then(function (response) {
       if (response.ok) {
         response.json().then(function (BMI_data) {
-       console.log (BMI_data)
-         window.localStorage.setItem ("BMI_Result", JSON.stringify(BMI_data[0].bmiResult) )
-         bmiResult = JSON.stringify(BMI_data[0].bmiResult)
+       console.log (BMI_data);
+         window.localStorage.setItem ("BMI_Result", JSON.stringify(BMI_data[0].bmiResult) );
+         bmiResult = JSON.stringify(BMI_data[0].bmiResult);
         
         });
       } else {
@@ -171,7 +171,7 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
       alert('Unable to connect to HiperMega Fitness Calculator ');
    });
 
-   //BFP fatching
+   //BFP fetching
 
    
 
@@ -179,10 +179,10 @@ var UsersInfo = function (firstname,lastname,neck,hip,gender,age,height,weight) 
    .then(function (response) {
       if (response.ok) {
         response.json().then(function (BFP_data) {
-       console.log (BFP_data)
+       console.log (BFP_data);
 
-       window.localStorage.setItem ("BodyFat%", JSON.stringify(BFP_data[0].body_fat) )
-       bodyfat  = JSON.stringify(BFP_data[0].body_fat)
+       window.localStorage.setItem ("BodyFat%", JSON.stringify(BFP_data[0].body_fat) );
+       bodyfat  = JSON.stringify(BFP_data[0].body_fat);
         });
       } else {
        alert('Error: ' + response.statusText);
