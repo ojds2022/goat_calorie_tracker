@@ -72,7 +72,7 @@
 
         <!--BMI and Calorie Standard (first row): table (Name, Type, Due)-->
         <div class="col-md col-xl-8"> 
-          <table class="table table-custom" >   
+          <table class="table table-custom text-center" >   
             <thead ></thead>
                 <th>BFP %</th>
                 <th>BMI</th>
@@ -280,6 +280,18 @@
               </button>
             </div>
           </div>
+
+          <!-- mini calendar -->
+          <div id="mini-calendar-outter-div" class="ms-2">
+            <a id="mini-calendar-anchortag" href="./calendar.html" target="_blank">
+              <section id="mini-calendar-section" class="">
+                <h2 id="month-name" class="text-center py-3 mb-0"></h2>
+                <div id="mini-calendar-container" class="container overflow-hidden px-2">
+                  <div id="mini-calendar" class="row"></div>
+                </div>
+              </section>
+            </a>
+          </div>
         </div>
 
         <!--Food Input (second row): table (Name, Type, Due)-->
@@ -378,18 +390,6 @@
       </div>
     </section>
   </div>
-
-    <!-- mini calendar -->
-    <div class="ms-3">
-      <a id="mini-calendar-anchortag" href="./calendar.html" target="_blank">
-        <section id="mini-calendar-section" class="">
-          <h2 id="month-name" class="text-center py-3 mb-0"></h2>
-          <div id="mini-calendar-container" class="container">
-            <div id="mini-calendar" class="row"></div>
-          </div>
-        </section>
-      </a>
-    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
