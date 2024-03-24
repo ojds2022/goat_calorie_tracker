@@ -90,10 +90,13 @@ function renderLastuserInfo() {
    lastNameElement.textContent = lastNameElement.textContent + ": " + last;
    ageElement.textContent = ageElement.textContent + ": " + age;
    genderElement.textContent =  genderElement.textContent + " : " + gender;
-   heightElement.textContent = heightElement.textContent + ": " + height;
-   weightElement.textContent = weightElement.textContent + ": " + weight;
-   neckElement.textContent =  neckElement.textContent + " : " + neck;
-   hipElement.textContent =  hipElement.textContent + " : " + hip;
+   
+   // changed 3-21-2024
+   heightElement.textContent = heightElement.textContent + ": " + height + " CM";
+   weightElement.textContent = weightElement.textContent + ": " + weight + " LB";
+   //
+   neckElement.textContent =  neckElement.textContent + " : " + neck + " Inches";
+   hipElement.textContent =  hipElement.textContent + " : " + hip + "inches";
    BMIElement.textContent = BMIElement.textContent + ": " + BMIResults;
    BFPElement.textContent = BFPElement.textContent + ": " + BFPResults;
    BlancedElement.textContent = "Recommended Calories Per Day: " + Balanced;
@@ -187,7 +190,19 @@ function handleBmiFormSubmit(event) {
 
   var bmiAge = trackerBmiAgeEl.val().trim();     
   var bmiGender = trackerBmiGenderEl.val();
-  var bmiHeight = trackerBmiHeightEl.val(); 
+  
+// changes inches to CM 3-21-2024
+ var bmiHeight = inchesToCm(trackerBmiHeightEl.val()); 
+
+ //fuction to calculate 3-21-2024
+  function inchesToCm(inches) {
+    return inches * 2.54;
+ }
+
+ console.log(bmiHeight)
+
+
+
   var bmiWeight = trackerBmiWeightEl.val(); 
   var bmiDate = trackerBmiDateInputEl.val(); 
   //adding additional fields
