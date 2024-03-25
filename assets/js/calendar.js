@@ -76,7 +76,7 @@ function getData()
                }
                // If the date is there then set the object to the data
               //  console.log("found")
-               allData[specificDate].weight = specificDayData.weight;
+               allData[specificDate].weight = Math.round(specificDayData.weight * 2.20462); // converts kg to lb and rounds number
                allData[specificDate].bmi = specificDayData.BMIResults;
               
        }
