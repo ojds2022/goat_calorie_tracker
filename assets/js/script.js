@@ -114,10 +114,6 @@ function renderLastuserInfo() {
 
 
 
-
-
-
-
 // BMI INPUT SECTION
 
 // SAVES BMI TO LOCAL STORAGE; bmiLocalStorage, saveAllBmiDataToStorage
@@ -211,7 +207,26 @@ function handleBmiFormSubmit(event) {
   var bmiNeck = trackerBmiNeckEl.val(); 
   var bmiHip = trackerBmiHipEl.val(); 
  
+  //input value integer check
+  var inputValues = [bmiAge,bmiHeight,bmiWeight,bmiNeck,bmiHip]
+
+  for (var i = 0; i < inputValues.length; i++) {
+    console.log (inputValues[i])
+    isValidNumber(inputValues[i])
+    if (!isValidNumber(inputValues[i]))
+    {
+        alert("Your Input values '" + inputValues[i] + "' must be integers!");
+        return ; // Stop further code execution
+    }
+  }
+
+  function isValidNumber(value) {
+    // Check if the value is either an integer or a decimal number
+    return /^\d+(\.\d+)?$/.test(value);
+}
   
+
+
 
 
   //ending adding adding additional fields
