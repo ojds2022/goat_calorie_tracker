@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const allBmiData = localStorage.getItem('allBmiData');
 
     const findBmi = (allBmiData) => {
+
         if (allBmiData) {
             const dataArray = JSON.parse(allBmiData);
             const newBmiArray = [];
@@ -28,12 +29,17 @@ document.addEventListener('DOMContentLoaded', function () {
                     newBmiArray.push(newObj);
                 }
             } 
+
+            
         
             return newBmiArray;
+            
         } else {
             console.log('Array not found in local storage');
         }
     } 
+
+ 
  
     
     //function creates a new array of calories and their date of entry
@@ -58,7 +64,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const addUpCalories = (x, y) => {
+        console.log(y);
+        if (x == undefined){
+            x = "hi";
+        }
         const caloriesArray = x;
+        if (y == undefined){
+            y = "hi";
+        }
+        
         const bmiArray = y;
         let dailyTotalCal = 0;
 
@@ -79,8 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
         const todaysDate = currentDate.getDate();
+
+        var parsedData;
+        if (allBmiData == null){
         
-        const topBmiEntry = parseInt(Object.values(findBmi(allBmiData)[0])[0]);
+            parsedData == parseInt(Object.values(2));
+        }
+        else {
+            parseInt(Object.values(findBmi(allBmiData)[0])[0]);
+        }
+        const topBmiEntry = parsedData;
+
          // the calories based on the date of a bmi entry
         const bmiDateCalConsumption = addUpCalories(caloriesArray(allFoodData), findBmi(allBmiData));
 
