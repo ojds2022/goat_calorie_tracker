@@ -24,10 +24,19 @@ nav {
   font-family: 'Marko One', sans-serif;
 }
 
-a {
-  color: var(--yellowtext);
+#calendar-link {
+  color: var(--maincolor);
+  background-color: var(--yellowtext);
+  border: none;
+  border-radius: 10px;
   font-size: 30px;
   text-decoration: none;
+}
+
+#calendar-link:hover {
+  color: var(--yellowtext);
+  background-color: var(--maincolor);
+  border: 2px solid var(--yellowtext);
 }
 
 body {
