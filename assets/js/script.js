@@ -16,7 +16,7 @@ var trackerBmiNeckEl = $('#neck-input-bmi');
 var trackerBmiHipEl = $('#hip-input-bmi');
 
 //edning with adding additional fields
-var displayFirstNameEl =  $('#fName');
+var displayFirstNameEl = $('#fName');
 var diaplyLastNameEl = $('#lname');
 
 //global variables
@@ -73,7 +73,7 @@ function renderLastuserInfo() {
    var age = bmi.age;
    var gender = bmi.gender;
    var height = Math.round(bmi.height * 0.393701);
-   var BFPResults = bmi.BFPResults;
+   var BFPResults = (bmi.BFPResults * -1);
    var BMIResults = bmi.BMIResults;
    var Balanced = bmi.Balanced;
    var hip = bmi.hip;
@@ -86,18 +86,18 @@ function renderLastuserInfo() {
   
 
 
-   firstNameElement.textContent =  firstNameElement.textContent + " : " + first;
+   firstNameElement.textContent = firstNameElement.textContent + ": " + first;
    lastNameElement.textContent = lastNameElement.textContent + ": " + last;
    ageElement.textContent = ageElement.textContent + ": " + age;
-   genderElement.textContent =  genderElement.textContent + " : " + gender;
+   genderElement.textContent = genderElement.textContent + ": " + gender;
    heightElement.textContent = heightElement.textContent + ": " + height + " in";
    weightElement.textContent = weightElement.textContent + ": " + weight + " lb";
-   neckElement.textContent =  neckElement.textContent + " : " + neck + " in";
-   hipElement.textContent =  hipElement.textContent + " : " + hip + " in";
+   neckElement.textContent = neckElement.textContent + ": " + neck + " in";
+   hipElement.textContent = hipElement.textContent + ": " + hip + " in";
    BMIElement.textContent = BMIElement.textContent + ": " + BMIResults;
-   BFPElement.textContent = BFPElement.textContent + ": " + BFPResults;
+   BFPElement.textContent = BFPElement.textContent + ": " + BFPResults + "%";
    BlancedElement.textContent = "Recommended Calories Per Day: " + Balanced;
-   HeavyGainElement.textContent =  "Heavy Weight Gain: " + heavyGain + " Calories";
+   HeavyGainElement.textContent = "Heavy Weight Gain: " + heavyGain + " Calories";
    displayHeavyLossElement.textContent = "Heavy Weight Loss: " + heavyLoss+" Calories";
    MildGainElement.textContent = "Mild Weight Gain: " + mildGain + " Calories";
    MildLossElement.textContent = "Mild Weight Loss: " + mildLoss + " Calories";
@@ -143,7 +143,7 @@ function printBmiData() {
     var today = dayjs().startOf('day');  
 
     var rowEl = $('<tr>');  
-    var ageEL = $('<td>').text(bmi.BFPResults + " %" );
+    var ageEL = $('<td>').text((bmi.BFPResults * -1) + " %" );
     var genderEl = $('<td>').text(bmi.BMIResults);
     var heightEl = $("<td>").text(Math.round(bmi.Balanced));
     var weightEl = $('<td>').text(Math.round(bmi.weight * 2.20462) + " lb");
