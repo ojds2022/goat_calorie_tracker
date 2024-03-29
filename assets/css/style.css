@@ -1,12 +1,4 @@
 :root {
-<<<<<<< HEAD
-  --yellowtext: #FDB927;
-  --maincolor: #552583;
-  --hovercolor: #F7F7D4;
-  --secondarybar: #552583;
-  --pastdate: #FFF5D1;
-  --presentdate: #FEFE33;
-=======
   --backgroundcolor: #f8f8e4;
   --yellowtext: #fdb927;
   --maincolor: #552583;
@@ -41,13 +33,6 @@ nav {
   text-decoration: none;
 }
 
-#calendar-link:hover {
-  color: var(--yellowtext);
-  background-color: var(--maincolor);
-  border: 2px solid var(--yellowtext);
->>>>>>> b6fb9c26a5f52681cabf497092c764381d501105
-}
-
 body {
   font-family: 'Petrona', sans-serif;
   font-weight: 400;
@@ -77,15 +62,15 @@ h6 {
 
 .btn-custom:hover {
 <<<<<<< HEAD
-  color: var(--hovercolor);
-=======
   background-color: var(--hovercolor);
   color: #552583;
 }
 
 .btn-sm:hover {
   color: var(--closebutton);
->>>>>>> b6fb9c26a5f52681cabf497092c764381d501105
+=======
+  color: var(--hovercolor);
+>>>>>>> 6168a2a12efa7a63ac1fc68a5fe271f24284a971
 }
 
 .table-custom th {
@@ -94,11 +79,18 @@ h6 {
 }
 
 <<<<<<< HEAD
+.project-late {
+  background-color: var(--pastdate);
+}
+
+.project-today {
+=======
 .past-date {
   background-color: var(--pastdate);
 }
 
 .present-date {
+>>>>>>> 6168a2a12efa7a63ac1fc68a5fe271f24284a971
   background-color: var(--presentdate);
 }
 
@@ -132,19 +124,9 @@ h6 {
   height: 250px;
   top: 9px;
   right: 50px;  
-=======
-.project-late {
-  background-color: var(--pastdate);
-}
-
-.project-today {
-  background-color: var(--presentdate);
->>>>>>> b6fb9c26a5f52681cabf497092c764381d501105
 }
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b6fb9c26a5f52681cabf497092c764381d501105
+
