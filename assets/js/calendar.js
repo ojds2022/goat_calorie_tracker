@@ -38,6 +38,10 @@ var caloriesFinalList = {};
 
 getCal();
 function getCal(){
+    
+       if (!allFoodData) {
+              allFoodData = [];
+       }
        for (var i = 0; i < allFoodData.length; i++) {
 
               foodDateIfSame= dayjs(allFoodData[i].date).format('D');
