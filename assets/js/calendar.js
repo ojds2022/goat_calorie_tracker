@@ -29,6 +29,7 @@ for(let i =1; i <= 31; i++) {
 var allFoodData = localStorage.getItem('allFoodData');
 allFoodData = JSON.parse(allFoodData);
 
+
 var bmiData = localStorage.getItem('allBmiData');
 bmiData = JSON.parse(bmiData);
 
@@ -54,6 +55,25 @@ var allData = {};
 // this function gets the data from the local storage and saves it in var as an objects
 function getData()
 {
+
+
+       //Added this code so we can initilize the data for each day. Otherwise we get error if nothing is in the local storage. 
+
+       if (!bmiData)
+       {   
+              bmiData = [];
+              
+              for (let index = 0; index < 31; index++) {
+                     allData[specificDate] = 
+                     {
+                         bmi: 0,
+                         weight: 0,
+                     };
+              }
+       }
+      
+              
+       
        for (var i = 0; i < bmiData.length; i++)
        {
               const specificDayData = bmiData[i];
@@ -76,6 +96,7 @@ function getData()
                }
                // If the date is there then set the object to the data
               //  console.log("found")
+
                allData[specificDate].weight = Math.round(specificDayData.weight * 2.20462); // converts kg to lb and rounds number
                allData[specificDate].bmi = specificDayData.BMIResults;
               
