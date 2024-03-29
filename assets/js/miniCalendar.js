@@ -6,11 +6,106 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
+    // stores the food data from the local storage into a variable
+    const allFoodData = localStorage.getItem('allFoodData');
+
+    const allBmiData = localStorage.getItem('allBmiData');
+
+    const findBmi = (allBmiData) => {
+
+        if (allBmiData) {
+            const dataArray = JSON.parse(allBmiData);
+            const newBmiArray = [];
+
+            // iterates over the bmi data to find 'Balanced' or reccommended calorie intake
+            if (dataArray.length === 0) {
+                newBmiArray.push('');
+            } else {
+                for (let i = 0; i <dataArray.length; i++) {
+                    const calRec = dataArray[i].Balanced;
+                    const dateOfRec = dataArray[i].date; // finds the date that the recommendation was given
+                    const newObj = {};
+                    newObj[dateOfRec] = calRec;
+                    newBmiArray.push(newObj);
+                }
+            } 
+
+            
+        
+            return newBmiArray;
+            
+        } else {
+            console.log('Array not found in local storage');
+        }
+    } 
+
+ 
+ 
+    
+    //function creates a new array of calories and their date of entry
+    const caloriesArray = (allFoodData) => {
+
+        if (allFoodData) {
+            const dataArray = JSON.parse(allFoodData);
+            const newCaloriesArray = [];
+    
+            // iterates over the food calories for each entry
+            for (let i = 0; i <dataArray.length; i++) {
+                const foodCalories = dataArray[i].foodCalorie;
+                const dateOfEntry = dataArray[i].date;
+                const newObj = {};
+                newObj[dateOfEntry] = foodCalories;
+                newCaloriesArray.push(newObj);
+            }
+            return newCaloriesArray;
+        } else {
+            console.log('Array not found in local storage');
+        }
+    }
+
+    const addUpCalories = (x, y) => {
+        console.log(y);
+        if (x == undefined){
+            x = "hi";
+        }
+        const caloriesArray = x;
+        if (y == undefined){
+            y = "hi";
+        }
+        
+        const bmiArray = y;
+        let dailyTotalCal = 0;
+
+        for (let i = 0; i < caloriesArray.length; i++) {
+            const dateForCal = Object.keys(caloriesArray[i])[0];
+            const dateForBmi = Object.keys(bmiArray[0])[0];
+
+            if (dateForCal === dateForBmi) {
+                dailyTotalCal += Object.values(caloriesArray[i])[0]
+            }
+        }
+        return dailyTotalCal;
+    }
+
+
     function renderCalendar() {
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth();
         const currentYear = currentDate.getFullYear();
         const todaysDate = currentDate.getDate();
+
+        var parsedData;
+        if (allBmiData == null){
+        
+            parsedData == parseInt(Object.values(2));
+        }
+        else {
+            parseInt(Object.values(findBmi(allBmiData)[0])[0]);
+        }
+        const topBmiEntry = parsedData;
+
+         // the calories based on the date of a bmi entry
+        const bmiDateCalConsumption = addUpCalories(caloriesArray(allFoodData), findBmi(allBmiData));
 
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
         const firstDayOfMonth = new Date(currentYear, currentMonth, 1).getDay();
@@ -34,10 +129,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             
             // Check if today's date matches the current date
-            if (i === todaysDate) {
+            if (i === todaysDate && !topBmiEntry) {
                 html += `<div class="col text-center todays-date">${i}</div>`; //adds the class .todays-date
+            } else if (i === todaysDate && bmiDateCalConsumption < (topBmiEntry - 50)) {
+                html += `<div class="col text-center todays-date">${i}</div>`; //adds the class .todays-date
+            } else if (i === todaysDate && bmiDateCalConsumption >= (topBmiEntry - 50) && bmiDateCalConsumption <= (topBmiEntry + 50)) {
+                html += `<div class="col text-center target-met">${i}</div>`; //adds the class .target-met
+            } else if (i === todaysDate && bmiDateCalConsumption > (topBmiEntry + 50)) {
+                html += `<div class="col text-center target-passed">${i}</div>`; //adds the class .target-passed
             } else {
-                html += `<div class="col text-center">${i}</div>`;
+                    html += `<div class="col text-center other-days">${i}</div>`;
             }
 
             dayCount++;
@@ -52,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function () {
         calendarHeader.innerHTML = monthNames[currentMonth];
         calendar.innerHTML = html;
     }
+    
 
     renderCalendar();
 });
